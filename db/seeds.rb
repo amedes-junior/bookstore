@@ -7,11 +7,23 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+# rails db:drop db:create db:migrate db:seed
+
 Sell.all.each { |s| s.destroy }
 Book.all.each { |b| b.destroy }
 
-book = Book.create(name: 'Harry Potter', price: 24.99)
+book = Book.create(name: 'Harry Potter', price: 24.49)
+book2 = Book.create(name: 'The Outliers', price: 19.99)
+book3 = Book.create(name: 'Sherlock Holmes', price: 18.49)
 
-5.times do
-  book.sells << Sell.create(quantity: rand(2..15), day: Sell::DAYS[rand(0..(Sell::DAYS.length-1))])
+10.times do
+  book.sells << Sell.create(quantity: rand(2..15), day: Sell::DAYS[rand(0..(Sell::DAYS.length))])
+end
+
+10.times do
+  book2.sells << Sell.create(quantity: rand(2..15), day: Sell::DAYS[rand(0..(Sell::DAYS.length))])
+end
+
+10.times do
+  book3.sells << Sell.create(quantity: rand(2..15), day: Sell::DAYS[rand(0..(Sell::DAYS.length))])
 end
