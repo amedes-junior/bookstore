@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'new_record_component' do %>
-  <div>
+  <div class="flex w-full items-center">
     <%= form_with(model: book, class: 'flex w-full items-center gap-2') do |form| %>
 
      <% if book.errors.any? %>
